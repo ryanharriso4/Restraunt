@@ -36,4 +36,15 @@ public abstract class Burger {
     public int getPrice() {
         return price;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(name + ": " + ((double) price / 100) + "\n\t");
+        for (Topping t : toppings) {
+            sb.append(t.toString() + "\n\t");
+        }
+
+        return sb.toString();
+    }
 }

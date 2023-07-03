@@ -11,6 +11,8 @@ public abstract class Topping {
     }
 
     public void setPrice(int price) {
+        if (price < 0)
+            throw new IllegalArgumentException("Price cannot be less than 0");
         this.price = price;
     }
 
@@ -20,5 +22,10 @@ public abstract class Topping {
 
     public int getPrice() {
         return price;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
