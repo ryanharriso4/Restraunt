@@ -8,6 +8,7 @@ public class TheOG extends Burger {
         addToppings(new Lettuce());
         addToppings(new AmericanCheese());
         addToppings(new PotatoBread());
+        addToppings(new AngusBeef());
         setPrice();
         setName("The OG");
     }

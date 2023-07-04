@@ -1,0 +1,8 @@
+package Foods.Toppings;
+
+public class Relish extends Topping {
+    public Relish() {
+        setName("Relish");
+        setPrice(20);
+    }
+}

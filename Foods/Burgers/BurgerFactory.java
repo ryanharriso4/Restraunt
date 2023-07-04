@@ -17,11 +17,11 @@ public class BurgerFactory {
         for (int num = 0; num < burgerOptions.length; num++) {
             System.out.println((num + 1) + ". " + burgerOptions[num] + "\n\t");
         }
-        System.out.println((burgerOptions.length + 1) + ". Done");
+        System.out.println((burgerOptions.length + 1) + ". Done Ordering");
 
         while (choice != (burgerOptions.length + 1)) {
             choice = userInput.nextInt();
-            if (choice < burgerOptions.length) {
+            if (choice < burgerOptions.length + 1) {
                 chosenBurgers.add(makeBurger(choice));
             }
 
@@ -31,12 +31,16 @@ public class BurgerFactory {
     }
 
     public Burger makeBurger(int input) {
-        if (input == 1)
+        if (input == 1) {
+            System.out.println("\nThe OG has been added to your cart\n");
             return new TheOG();
-        else if (input == 2)
+        } else if (input == 2) {
+            System.out.println("\nThe Swiss has been added to your cart\n");
             return new TheSwiss();
-        else if (input == 3)
+        } else if (input == 3) {
             return null;
+        }
+
         else
             throw new IllegalArgumentException();
     }

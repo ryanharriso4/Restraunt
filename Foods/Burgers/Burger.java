@@ -40,7 +40,7 @@ public abstract class Burger {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(name + ": " + ((double) price / 100) + "\n\t");
+        sb.append(name + ": " + String.format("%.2f", ((double) price / 100)) + "\n\t");
         for (Topping t : toppings) {
             sb.append(t.toString() + "\n\t");
         }
