@@ -11,9 +11,9 @@ import Items.Drinks.*;
 public class Restraunt {
 
     private int numberOfOptions = 3;
-    private Item[] burgerOptions = { new TheSwiss() };
+    private Item[] burgerOptions = { new TheSwiss(), new TheOG() };
     private Item[] hotDogOptions = { new BallPark() };
-    private Item[] drinkOptions = { new Coke() };
+    private Item[] drinkOptions = { new Cola() };
 
     private Factory burgerFactory = new Factory(burgerOptions);
     private Factory hotDogFactory = new Factory(hotDogOptions);
@@ -69,8 +69,11 @@ public class Restraunt {
                 checkOutMenu();
             } else if (choice == 2)
                 mainMenu();
-            else if (choice == 3)
-                System.out.println("ORDER FINISHED\t\t");
+            else if (choice == 3) {
+                System.out.println("ORDER COMPLETE\n");
+                printOrder();
+                System.out.printf("Total Price: %.2f", ((double) calculateMaxPrice() / 100));
+            }
 
         } else {
             System.out.println("The input provided does not work\n\t");
@@ -88,5 +91,16 @@ public class Restraunt {
             System.out.println(hotdog + "\n");
         for (Item drink : drinks)
             System.out.println(drink + "\n");
+    }
+
+    public int calculateMaxPrice() {
+        int price = 0;
+        for (Item burger : burgers)
+            price += burger.getPrice();
+        for (Item hotdog : hotdogs)
+            price += hotdog.getPrice();
+        for (Item drink : drinks)
+            price += drink.getPrice();
+        return price;
     }
 }
